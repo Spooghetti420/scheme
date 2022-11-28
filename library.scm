@@ -14,6 +14,16 @@
     )
 )
 
+(define (factorial n)
+    (define (fact-iter count product)
+        (if (> count n)
+            product
+            (fact-iter (+ count 1) (* product count))
+        )
+    )
+    (fact-iter 1 1)
+)
+
 (define (mean x y)
     (/ (+ x y) 2)
 )
@@ -71,4 +81,3 @@
     )
     (sum-inner start-value 0)
 )
-
