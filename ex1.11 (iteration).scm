@@ -14,15 +14,17 @@
     (or (< x y) (= x y))
 )
 
-; http://community.schemewiki.org/?sicp-ex-1.11
 (define (f-iter n)
+	(define (next a b c)
+		(+ a (* 2 b) (* 3 c))
+	)
 
-	(define (fi a b c count)
-		(cond 
-			((< n 3) n)
-			((<= count 0) a)
-			(else (fi (+ a (* 2 b) (* 3 c)) a b (- count 1)))
+	(define (f-inner a b c count)
+		(define n (next a b c))
+		(if (= count 3)
+			n
+			(f-inner n a b (- count 1))
 		)
 	)
-	(fi 2 1 0 (- n 2))
+	(f-inner 2 1 0 n)
 )
