@@ -5,8 +5,6 @@
     )
 )
 
-
-;; the same function as `pascal`, but using direct computation instead of recursion
 (define (factorial n)
     (define (fact-iter count product)
         (if (> count n)
@@ -17,7 +15,7 @@
     (fact-iter 1 1)
 )
 
-
+;; the same function as `pascal`, but using direct computation instead of recursion
 (define (binomial-coefficient n k)
     (
         / 
