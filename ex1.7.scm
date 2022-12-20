@@ -1,0 +1,40 @@
+(define (abs x)
+    (if (> x 0)
+        x
+        (- x)
+    )
+)
+
+(define (mean x y)
+    (/ (+ x y) 2)
+)
+
+(define (<= x y)
+    (or (< x y) (= x y))
+)
+
+(define (ratio-error actual approx)
+    (/ (- approx actual) actual)
+)
+
+(define (percentage-error actual approx)
+    (* (ratio-error actual approx) 100)
+)
+
+(define (sqrt x)
+    (define (improve-guess guess)
+        (mean guess (/ x guess))
+    )
+    (define (good-enough? guess improved-guess)
+        (<= (abs (percentage-error guess improved-guess)) 0.1)
+    )
+    (define (sqrt-iter guess)
+        (let ((improved (improve-guess guess)))
+            (if (good-enough? guess improved)
+                guess
+                (sqrt-iter improved)
+            )
+        )
+    )
+    (sqrt-iter 1)
+)
