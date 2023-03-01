@@ -1,0 +1,2 @@
+# Exercises that still need doing
+- 1.37: find an iterative solution. I already looked this up on sicpsolutions.net, so I'll wait a while before trying again so that I'm not just verbatim copying. Ironically, our recursive solutions were operation-for-operation identical, though.
