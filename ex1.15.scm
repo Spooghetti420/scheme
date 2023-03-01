@@ -1,6 +1,6 @@
 (define (sin x)
 
-    (define (is-small-enough)
+    (define (is-small-enough?)
         (< (abs x) 0.1)
     )
     (define (reduce x)
@@ -14,7 +14,7 @@
         (* x x x)
     )
 
-    (if (is-small-enough)
+    (if (is-small-enough?)
         x
         (reduce (sin (/ x 3)))
     )
